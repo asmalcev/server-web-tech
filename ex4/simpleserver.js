@@ -23,7 +23,7 @@ const server = http.createServer((req, res) => {
 
         const response = {
             message: 'google.106893173198622652497',
-            ['x-test']: req.headers['x-test'],
+            ['x-result']: req.headers['x-test'],
             ['x-body']: body,
         };
 
