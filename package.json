@@ -1,0 +1,15 @@
+{
+  "name": "server-web-tech",
+  "version": "1.0.0",
+  "description": "- ex3 — Упражнение 3 - ex4 — Упражнение 4",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start-ex5": "PORT=3000 node ex5/index.js "
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.0"
+  }
+}
