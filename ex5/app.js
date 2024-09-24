@@ -10,6 +10,10 @@ export default (express, bodyParser, createReadStream, crypto, http) => {
             'Access-Control-Allow-Methods',
             'GET,POST,PUT,DELETE,OPTIONS'
         );
+        res.setHeader(
+            'Access-Control-Allow-Headers',
+            'x-test,ngrok-skip-browser-warning,Content-Type,Accept,Access-Control-Allow-Headers'
+        );
         next();
     });
 
