@@ -1,4 +1,11 @@
-export default (express, bodyParser, createReadStream, crypto, http) => {
+export default (
+    express,
+    bodyParser,
+    createReadStream,
+    crypto,
+    http,
+    MongoClient
+) => {
     const app = express();
 
     app.use(bodyParser.json());
@@ -47,6 +54,17 @@ export default (express, bodyParser, createReadStream, crypto, http) => {
             response.on('data', (chunk) => data.push(chunk));
             response.on('end', () => res.send(data.join()));
         });
+    });
+
+    app.post('/insert/', (req, res) => {
+        const { login, password, URL } = req.body;
+
+        new MongoClient(URL)
+            .connect()
+            .then((client) => client.db('readusers'))
+            .then((db) => db.collection('users'))
+            .then((client) => client.insertOne({ login, password }))
+            .then(() => res.send('OK'));
     });
 
     app.all('*', (req, res) => res.send('google.106893173198622652497'));
